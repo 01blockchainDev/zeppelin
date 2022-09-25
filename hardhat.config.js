@@ -1,5 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-truffle5");
+require('@openzeppelin/hardhat-upgrades');
 
 const { alchemyApikey, mnemonic } = require('./secrets.json');
 
