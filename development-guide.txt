@@ -1,0 +1,29 @@
+1. npm install --save-dev hardhat
+2. npm install @openzeppelin/contracts
+3. npx hardhat node
+4. create scripts/deploy.js
+5. npm install --save-dev @nomiclabs/hardhat-ethers ethers
+6. insert require("@nomicfoundation/hardhat-toolbox") in hardhat.config.js
+7. npx hardhat run --network scripts/deploy.js
+8. //localhost testing. npx hardhat console --network localhost
+9. //programmatically interacting
+10. //testing
+-npm install --save-dev chai
+-create test/Box.test.js
+-npx hardhat test
+11. //performing complicated task
+-npm install --save-dev @openzeppelin/test-helpers
+//to use truffle test mode in hardhat 
+-npm install --save-dev "@nomiclabs/hardhat-truffle5"
+-npm install --save-dev "@nomiclabs/hardhat-web3"
+12. //connecting to public test networks
+-npx hardhat run --network rinkeby scripts/deploy.js
+
+13. //using proxy pattern
+- npm install --save-dev @openzeppelin/hardhat-upgrades.
+    const Box = await ethers.getContractFactory('Box');
+    const box = await upgrades.deployProxy(Box, [12], {initializer: 'store'})
+
+    const BoxV2 = await ethers.getContractFactory('BoxV2');
+    await upgrades.upgradeProxy('address of past version', BoxV2);
+    
